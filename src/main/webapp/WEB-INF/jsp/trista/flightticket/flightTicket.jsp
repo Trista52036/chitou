@@ -41,7 +41,7 @@
 			<p class="card-description" href="ListFlightTicket">
 		<a href="addFlightTicket">
 			<button id="receive" type="button" class="btn btn-inverse-primary btn-fw">
-				<i class="ti-plus"></i>&nbsp;新增機票
+				<i class="fa-solid fa-plus"></i>新增機票
 			</button>
 		</a>
 	</p>
@@ -105,13 +105,13 @@
 						<!-- 修改 -->
 								<button type="submit" name="update"
 									class="btn btn-inverse-success btn-icon">
-									<i class="ti-pencil-alt"></i>
+									<i class="fa-regular fa-pen-to-square"></i>
 								</button> &nbsp; &nbsp;
 						</form>
 						<!-- 刪除 -->
 						<a href="deleteFlightTicket?flightid=${flightticket.flightid}"><button
 								class="btn btn-inverse-danger btn-icon">
-								<i class="ti-trash"></i>
+								<i class="fa-solid fa-trash-can"></i>
 							</button></a>
 						</td>
 				</c:forEach>

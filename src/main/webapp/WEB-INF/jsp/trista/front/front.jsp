@@ -193,7 +193,7 @@
 									</fieldset>
 								</div>
 							</div>
-							<form>
+							</form>
 					</div>
 				</div>
 			</section>
@@ -201,9 +201,6 @@
 		</div>
 		</div>
 		</section>
-
-
-
 
 			<script>
 		

@@ -117,12 +117,10 @@ response.setCharacterEncoding("UTF-8");
 	
 	<script>
 		$('#fastInput').click(function() {
-
 			$('#firstname').val('Wong');
 			$('#lastname').val('XiaoMing');
 			$('#emailaddress').val('chitou01@gmail.com');
 			$('#phone').val('0955167899');
-			
 		})
 	</script>
 	

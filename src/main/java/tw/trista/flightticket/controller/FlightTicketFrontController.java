@@ -168,5 +168,6 @@ public class FlightTicketFrontController {
 //		List<FlightTicket> flightticket1 = ooservice.getAll();
 //		m.addAttribute("listFlightTicket", flightticket1);
 		return "trista/front/frontsearchflight";
+		//return "trista/front/frontthanks";
 	}
 }
