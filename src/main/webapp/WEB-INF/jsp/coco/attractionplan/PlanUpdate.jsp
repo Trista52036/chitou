@@ -61,7 +61,7 @@ response.setDateHeader ("Expires", -1); // Prevents caching at the proxy server
 										<div class="form-group">
 											<label> 方案內容: </label>
 											<div >
-												<textarea id="editor1" name="plandiscript" placeholder="請輸入方案的內容">${plan.plandiscript}</textarea>
+												<textarea id="editor" name="plandiscript" placeholder="請輸入方案的內容"></textarea>
 											</div>
 										</div>
 										
@@ -69,26 +69,54 @@ response.setDateHeader ("Expires", -1); // Prevents caching at the proxy server
 
 										<button type="submit" name="submit" class="btn btn-primary mr-2">修改</button>
 										<a href="showAttractionPlans?attractionid=${plan.attraction.attid}"><button type="button" class="btn btn-light">返回</button></a> 
+										<button type="button" class="btn btn-primary mr-2" id="fastinput2" style="float:right;">一鍵修改2</button>
+										<button type="button" class="btn btn-primary mr-2" id="fastinput" style="float:right;">一鍵修改</button>
+									
 									</form>
+									
 							<%@ include file="/WEB-INF/includes/SuperBottom.jsp"%>
 					
 
 
 
 
+<script src="/js/coco/bootstrap/jquery-3.4.1.min.js"></script>
+	<script>
+	$('#fastinput').click(function(){
+		$('#planid').val('220')
+		$('#planname').val('攜帶慶記方案')
+		$('#planfee').val('100')
+// 		$('#attDescription').val('遊客眾多的主題樂園，主打雲霄飛車、多種遊樂設施、人工波浪池和飄飄河。')
+		myEditor.setData('<p>攜帶慶記可享優惠。</p>');
+	})
+	
+	</script>
+	<script>
+	$('#fastinput2').click(function(){
+		$('#planid').val('221')
+		$('#planname').val('小姐陪遊方案')
+		$('#planfee').val('100000')
+// 		$('#attDescription').val('遊客眾多的主題樂園，主打雲霄飛車、多種遊樂設施、人工波浪池和飄飄河。')
+		myEditor.setData('<p>金錢爆樂園一晚沒有十萬是走不出大門的。</p>');
+	})
+	
+	</script>
+
 	<!-- ckeditor:js & function-->
 	<script src="/js/coco/ckeditor.js"></script>
-	<script>
-	 	ClassicEditor
-		   .create(document.querySelector('#editor1'),{
-			    ckfinder: {
-			        uploadUrl: '/ckUploadCoco'
-			    },
-			}).then(editor => {
-		    	  console.log("editor1 success");
-		   });
-        </script>
-
+<script type="text/javascript">
+ClassicEditor
+.create(document.querySelector('#editor'),{
+	    ckfinder: {
+	        uploadUrl: '/ckUploadCoco'
+	    },
+	}).then(editor => {      
+		myEditor = editor;
+	         // 设置初始值
+	         myEditor.setData('${plan.plandiscript}');
+ 	  console.log("editor success");
+});
+</script>
 </body>
 
 </html>

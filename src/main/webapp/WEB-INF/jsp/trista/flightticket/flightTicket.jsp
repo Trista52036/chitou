@@ -48,7 +48,7 @@
 			<form action="searchFlightTicket" method="post" enctype="multipart/form-data">
 			<input type="text" name="search" class="form-control">
 			<button type="submit" name="searchno" class="btn btn-info">
-			<i class="ti-search"></i>
+			<i class="fa-solid fa-magnifying-glass"></i>
 			</button>
 			</form>
 			

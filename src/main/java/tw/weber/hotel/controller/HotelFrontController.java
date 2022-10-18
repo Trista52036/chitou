@@ -55,12 +55,22 @@ public class HotelFrontController {
 										@RequestParam(name = "dateEnd",required = false)String dateEnd,
 										@RequestParam(name = "number",defaultValue = "1")int number,
 										@RequestParam("hotelID")int hotelID,Model model) throws ParseException {
+		Date newDateStart = new Date();
 		if (dateStart!=null) {
-			Date newDateStart = new SimpleDateFormat("yyyy-mm-dd").parse(dateStart);
+			try {
+				newDateStart = new SimpleDateFormat("yyyy-mm-dd").parse(dateStart);
+			} catch (ParseException e) {
+				newDateStart = new SimpleDateFormat("mm/dd/yyyy").parse(dateStart);
+			}
 			dateStart = new SimpleDateFormat("mm/dd/yyyy").format(newDateStart);
 		}
+		Date newDateEnd = new Date();
 		if (dateEnd!=null) {
-			Date newDateEnd = new SimpleDateFormat("yyyy-mm-dd").parse(dateEnd);
+			try {
+				newDateEnd = new SimpleDateFormat("yyyy-mm-dd").parse(dateEnd);
+			} catch (ParseException e) {
+				newDateEnd = new SimpleDateFormat("mm/dd/yyyy").parse(dateEnd);
+			}
 			dateEnd = new SimpleDateFormat("mm/dd/yyyy").format(newDateEnd);
 		}
 		model.addAttribute("dateStart",dateStart);
@@ -113,6 +123,12 @@ public class HotelFrontController {
 		model.addAttribute("checkInDate",dateStart);
 		model.addAttribute("checkOutDate",dateEnd);
 		model.addAttribute("number",number);
+		int numberOfHotelPhoto = fService.getNumberOfHotelPhoto(hotelID);
+		ArrayList<String> photos = new ArrayList<String>();
+		for(int i = 1;i <= numberOfHotelPhoto;i++) {
+			photos.add("/images/weber/hotel/hotelNB"+ hotelID +"/photo"+ i +".jpg");
+		}
+		model.addAttribute("photos",photos);
 		return bookingPage;
 	}
 	

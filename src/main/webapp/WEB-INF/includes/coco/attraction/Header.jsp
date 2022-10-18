@@ -4,7 +4,7 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 	<div
 		class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-		<a class="navbar-brand brand-logo mr-5" href="index.html"><img
+		<a class="navbar-brand brand-logo mr-5" href="/home"><img
 			src="/images/coco/logo3.png" class="mr-2" alt="logo" /> <img
 			src="/images/coco/logo2.png" class="mr-2" alt="logo" /></a>
 	</div>
@@ -31,59 +31,60 @@
 		</ul>
 		<ul class="navbar-nav mr-lg-4">
 			<li class="nav-item dropdown"><a
-				class="dropdown-toggle btn btn-inverse-primary btn-sm" href="#"
+				class=" btn btn-inverse-primary btn-sm" href="#"
 				data-toggle="dropdown"> <i class="fa-solid fa-location-dot"></i>&nbsp;景點門票
 			</a>
 				<div class="dropdown-menu dropdown-menu-right navbar-dropdown"
 					aria-labelledby="profileDropdown">
-					<a href="AttractionList" class="dropdown-item"> <i class="ti-settings text-primary"></i>
-						景點總覽
-					</a> 
+	
+					<a href="AttractionSearch" class="dropdown-item"> <i
+						class=" text-primary"></i> 景點總覽
+
+					</a>
 				</div></li>
 		</ul>
 
 		<ul class="navbar-nav mr-lg-4">
 			<li class="nav-item dropdown"><a
-				class="dropdown-toggle btn btn-inverse-primary btn-sm" href=""
+				class=" btn btn-inverse-primary btn-sm" href=""
 				data-toggle="dropdown"> <i class="fa-solid fa-hotel"></i>&nbsp;住宿酒店
 			</a>
 				<div class="dropdown-menu dropdown-menu-right navbar-dropdown"
 					aria-labelledby="profileDropdown">
-					<a  href="searchHotel" class="dropdown-item"> <i class="ti-settings text-primary"></i>
-						飯店搜尋
-					</a> 
+					<a href="searchHotel" class="dropdown-item"> <i
+						class=" text-primary"></i> 飯店搜尋
+					</a> <a href="/member/sss" class="dropdown-item"> <i
+						class=" text-primary"></i> 簡單搜索頁面
+					</a>
 				</div></li>
 		</ul>
 
 
 		<ul class="navbar-nav mr-lg-4">
 			<li class="nav-item dropdown"><a
-				class="dropdown-toggle btn btn-inverse-primary btn-sm" href="#"
+				class=" btn btn-inverse-primary btn-sm" href="#"
 				data-toggle="dropdown"> <i class="fa-solid fa-plane"></i>&nbsp;交通機票
 			</a>
 				<div class="dropdown-menu dropdown-menu-right navbar-dropdown"
 					aria-labelledby="profileDropdown">
-					<a href="chitou.flightticket" class="dropdown-item"> <i
-						class="ti-settings text-primary"></i> 機票總覽
+					<a href="/chitou.flightticket" class="dropdown-item"> <i
+						class="text-primary"></i> 機票總覽
 					</a>
 				</div></li>
 		</ul>
 		<ul class="navbar-nav mr-lg-4">
 			<li class="nav-item dropdown"><a
-				class="dropdown-toggle btn btn-inverse-primary btn-sm" href="#"
+				class=" btn btn-inverse-primary btn-sm" href="#"
 				data-toggle="dropdown"> <i class="fa-solid fa-comment"></i>&nbsp;討論區
 			</a>
 				<div class="dropdown-menu dropdown-menu-right navbar-dropdown"
 					aria-labelledby="profileDropdown">
 					<a href="/article.main" class="dropdown-item"> <i
-						class="ti-settings text-primary"></i> 文章總覽
+						class=" text-primary"></i> 文章總覽
+					</a> <a href="/article.user" class="dropdown-item"> <i
+						class=" text-primary"></i> 文章管理
 					</a>
-					 <a href="/article.user" class="dropdown-item"> <i
-						class="ti-settings text-primary"></i> 文章管理
-					</a> 
-					<a href="/member/sss" class="dropdown-item"> <i
-						class="ti-power-off text-primary"></i> 發表文章
-					</a>
+
 				</div></li>
 		</ul>
 
@@ -96,28 +97,32 @@
 				<div
 					class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
 					aria-labelledby="notificationDropdown">
+
 					<p class="mb-0 font-weight-normal float-left dropdown-header"><a href="cart">購物車</a></p>
 					<a class="dropdown-item preview-item" href="/cart">
+
 						<div class="preview-thumbnail">
 							<div class="preview-icon bg-success">
-								<i class="ti-info-alt mx-0"></i>
+								<i class="fa-solid fa-cart-shopping mx-0"></i>
 							</div>
 						</div>
 						<div class="preview-item-content">
 							<h6 class="preview-subject font-weight-normal">購物車</h6>
 							<p class="font-weight-light small-text mb-0 text-muted"></p>
 						</div>
+
 					</a> <a class="dropdown-item preview-item"  href="/order">
+
 						<div class="preview-thumbnail">
 							<div class="preview-icon bg-warning">
-								<i class="ti-settings mx-0"></i>
+								<i class="fa-solid fa-basket-shopping mx-0"></i>
 							</div>
 						</div>
 						<div class="preview-item-content">
 							<h6 class="preview-subject font-weight-normal">訂單</h6>
 							<p class="font-weight-light small-text mb-0 text-muted"></p>
 						</div>
-					</a> 
+					</a>
 				</div></li>
 			<li class="nav-item nav-profile dropdown"><a
 				class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
@@ -127,11 +132,13 @@
 				<div class="dropdown-menu dropdown-menu-right navbar-dropdown"
 					aria-labelledby="profileDropdown">
 					<a href="/uvmember/toMemberHomePage" class="dropdown-item"> <i
-						class="ti-settings text-primary"></i> 個人頁面
-					</a> <a class="dropdown-item"> <i class="ti-settings text-primary"></i>
+						class="fa-solid fa-user text-primary"></i> 會員登入
+					</a> <a href="/uvmember/toMemberHomePage" class="dropdown-item"> <i
+						class=" fa-solid fa-house-user text-primary"></i> 個人頁面
+					</a> <a class="dropdown-item"> <i class="fa-solid fa-user-gear text-primary"></i>
 						Settings
 					</a> <a id="logout" href="/logout" class="dropdown-item"> <i
-						class="ti-power-off text-primary"></i> 登出
+						class="fa-solid fa-arrow-right-to-bracket text-primary"></i> 登出
 					</a>
 				</div></li>
 
@@ -144,18 +151,22 @@
 	</div>
 
 	<script>
-		var memberbasicinfo = ${memberbasicinfo};
-		
-		if(memberbasicinfo !=null){
-			var statusid = ${memberbasicinfo.statusid}
 
-		if (statusid != null) {
-				console.log('sss:' + memberbasicinfo)
+			var username = ${memberbasicinfo.memberid}
+			;
+
+			if (username > 0)
+
+			{
+				console.log('測試是否進來:' + username)
 				$('#img1').attr('src', '/${memberbasicinfo.photo}')
+
 			}
 
-		}
 	</script>
+
+
+
 
 
 </nav>

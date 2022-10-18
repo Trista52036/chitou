@@ -80,10 +80,10 @@ response.setDateHeader ("Expires", -1); // Prevents caching at the proxy server
 												 placeholder="請選擇新增的景點位置" />
 										</div>
 
-										<div class="form-group">
+										<div class="form-group" >
 											<form:label path="attDescription"> 景點說明: </form:label>
 											<div >
-												<form:textarea id="attDescription" path="attDescription" name="attDescription" placeholder="請輸入新增的景點說明"></form:textarea>
+												<form:textarea id="editor" path="attDescription" name="attDescription" placeholder="請輸入新增的景點說明"></form:textarea>
 											</div>
 										</div>
 										
@@ -106,35 +106,37 @@ response.setDateHeader ("Expires", -1); // Prevents caching at the proxy server
 
 
 	<script src="/js/coco/bootstrap/jquery-3.4.1.min.js"></script>
+        
 	<script>
-	
-// 	$('#fastinput').on('click',function{
-// 		console.log('yee')
-// 	})
-	
 	$('#fastinput').click(function(){
 		
 		$('#attid').val('1110')
 		$('#attName').val('麗寶樂園渡假區')
 		$('#attLocation').val('台中市后里區福容路8號')
-		$('#attDescription').val('遊客眾多的主題樂園，主打雲霄飛車、多種遊樂設施、人工波浪池和飄飄河。')
+		myEditor.setData('<p>躺著玩，坐著玩，趴著玩，還是麗寶好玩。台中「麗寶樂園」有最廣為人知的探索樂園、刺激又好玩的水上樂園馬拉灣，加上麗寶OUTLET和國際認證的麗寶賽車場，還有各式主題表演和節慶活動，並可入住豪華五星級福容大飯店，精彩豐富的主題將整座園區規畫成全台最大的渡假區，一站就能滿足所有吃喝玩樂！</p>');
+
 		
 	})
 	
 	</script>
 	
 	<!-- ckeditor:js & function-->
-	<script src="https://cdn.ckeditor.com/ckeditor5/35.2.0/super-build/ckeditor.js"></script>
-	<script src="/js/coco/ckeditorCoco.js"></script>
+<!-- 	<script src="https://cdn.ckeditor.com/ckeditor5/35.2.0/super-build/ckeditor.js"></script> -->
+<!-- 	<script src="/js/coco/ckeditorCoco.js"></script> -->
+		<script src="/js/coco/ckeditor.js"></script>
+	
 	<script>
-// 	 	ClassicEditor
-// 		   .create(document.querySelector('#editor1'),{
-// 			    ckfinder: {
-// 			        uploadUrl: '/ckUploadCoco'
-// 			    },
-// 			}).then(editor => {
-// 		    	  console.log("editor1 success");
-// 		   });
+	 	ClassicEditor
+		   .create(document.querySelector('#editor'),{
+			    ckfinder: {
+			        uploadUrl: '/ckUploadCoco'
+			    },
+			}).then(editor => {      
+				myEditor = editor;
+			         // 设置初始值
+			         myEditor.setData('');
+		    	  console.log("editor success");
+		   });
         </script>
 
 </body>

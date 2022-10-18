@@ -77,6 +77,24 @@
 
         </div>
       </div> <!-- END .custom-block -->
+	<div class="col-md- text">
+			
+				<h4 class="title">｜地圖</h4>
+				<br>
+
+<iframe width="100%" 
+    height="300" 
+    frameborder="0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD_ncUVLw0kJwbHqd4OTiualgb9dcHsJkw&amp;q=${hotel.address}&amp;zoom=18&amp;language=zh-tw" 
+ allowfullscreen="allowfullscreen" data-gtm-yt-inspected-79="true" style="border: 0px;"></iframe>
+
+				<br>
+								<h4 class="title">｜商品說明</h4>
+				<br>
+				${attraction.attDescription}
+			</div>
+
+
 
 
       <div class="untree_co-section testimonial-section mt-5">
@@ -413,7 +431,7 @@ $("#date").daterangepicker({
     <c:if test="${dateEnd!=null}">
     "endDate": "${dateEnd}",
     </c:if>
-    // "minDate": new Date(),
+    "minDate": new Date(),
     locale: {
         applyLabel: "確定",
         cancelLabel: "取消",

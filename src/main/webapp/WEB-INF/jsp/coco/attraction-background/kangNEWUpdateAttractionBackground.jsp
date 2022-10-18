@@ -63,7 +63,7 @@ response.setCharacterEncoding("UTF-8");
 											<form:label path="attDescription"> 景點說明: </form:label>
 											<div >
 <%-- 										<form:textarea id="t1" rows="6" cols="50" path="attDescription" class="form-control" placeholder="請輸入修正的景點說明"></form:textarea>											</div> --%>
-										<form:textarea id="attDescription" path="attDescription" rows="6" cols="50" class="form-control" placeholder="請輸入修正的景點說明"></form:textarea>											
+										<form:textarea id="editor" path="attDescription" rows="6" cols="50" class="form-control" placeholder="請輸入修正的景點說明"></form:textarea>											
 										</div>
 										</div>
 										
@@ -82,17 +82,41 @@ response.setCharacterEncoding("UTF-8");
 
 										<button type="submit" name="modify" class="btn btn-primary mr-2">修正</button>
 										<a href="listAttractions"><button class="btn btn-light">返回</button></a>
+										<button type="button" class="btn btn-primary mr-2" id="fastinput" style="float:right;">一鍵修改</button>
                        				 </form:form>
 									</div>
 						<%@ include file="/WEB-INF/includes/SuperBottom.jsp"%>
 				
 <!-- 		<script src="/js/coco/ckeditor.js"></script> -->
-	<script src="https://cdn.ckeditor.com/ckeditor5/35.2.0/super-build/ckeditor.js"></script>
-	<script src="/js/coco/ckeditorCoco.js"></script>
+<!-- 	<script src="https://cdn.ckeditor.com/ckeditor5/35.2.0/super-build/ckeditor.js"></script> -->
+	<script src="/js/coco/bootstrap/jquery-3.4.1.min.js"></script>
+        
+	<script>
+	$('#fastinput').click(function(){
+		
+		$('#attid').val('1110')
+		$('#attName').val('金錢豹樂園')
+		$('#attLocation').val('台中市后里區福容路8號')
+		myEditor.setData('<p>充滿慶記的樂園。台灣的飲酒文化由來已久，金錢豹是台灣酒店的代表，美女如雲，酒的品質更是最佳，種類繁多！金錢豹酒店消費高貴不貴，讓你體驗到最高檔的酒店服務！</p>');
 
-
-  
-								
-			
+		
+	})
+	
+	</script>
+	
+<script src="/js/coco/ckeditor.js"></script>
+<script type="text/javascript">
+ClassicEditor
+.create(document.querySelector('#editor'),{
+	    ckfinder: {
+	        uploadUrl: '/ckUploadCoco'
+	    },
+	}).then(editor => {      
+		myEditor = editor;
+	         // 设置初始值
+	         myEditor.setData('${selectByAttid.attDescription}');
+ 	  console.log("editor success");
+});
+</script>
 </body>
 </html>

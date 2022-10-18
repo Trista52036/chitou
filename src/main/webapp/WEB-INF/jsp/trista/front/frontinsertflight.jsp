@@ -115,6 +115,9 @@ response.setCharacterEncoding("UTF-8");
 	</form:form>
 	</div>
 	
+<%@ include file="/WEB-INF/includes/coco/attraction/Footer.jsp"%>
+
+<%@ include file="/WEB-INF/includes/coco/attraction/AttractionsDescriptionJS.jsp"%>
 	<script>
 		$('#fastInput').click(function() {
 			$('#firstname').val('Wong');
@@ -123,11 +126,6 @@ response.setCharacterEncoding("UTF-8");
 			$('#phone').val('0955167899');
 		})
 	</script>
-	
-
-<%@ include file="/WEB-INF/includes/coco/attraction/Footer.jsp"%>
-
-<%@ include file="/WEB-INF/includes/coco/attraction/AttractionsDescriptionJS.jsp"%>
 
 </body>
 </html>

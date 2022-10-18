@@ -4,6 +4,7 @@
 
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +14,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Login</title>
+<title><spring:message code="title.login.page" /></title>
 
 <!-- plugins:css -->
 <link rel="stylesheet" href="/css/coco/feather.css">
@@ -31,6 +32,10 @@
 #auth_button {
 	background-color: pink
 }
+
+.errormsg {
+	color: red;
+}
 </style>
 
 </head>
@@ -45,7 +50,7 @@
 						<div class="auth-form-light text-left py-5 px-4 px-sm-5">
 							<div class="brand-logo">
 								<!-- <img src="../../images/logo1.png" alt="logo"> -->
-								<a class="navbar-brand brand-logo mr-5" href="home"><img
+								<a class="navbar-brand brand-logo mr-5" href="/home"><img
 									src="/images/coco/logo3.png" class="mr-6" width="auto"
 									height="auto" alt="logo" /><img src="/images/coco/logo2.png"
 									class="mr-2" alt="logo" /></a>
@@ -57,47 +62,78 @@
 								<div class="form-group">
 									<input type="text" class="form-control form-control-lg"
 										id="username" placeholder="Username" name="username">
-									<span>${errors.name}</span>
+									<span class="errormsg">${errors.name}</span>
 								</div>
 								<div class="form-group">
 									<input type="password" class="form-control form-control-lg"
 										id="password" placeholder="Password" name="password">
-									<span>${errors.pwd}</span>
+									<span class="errormsg">${errors.pwd}</span>
 								</div>
 
 								<!-- 								<div class="g-recaptcha" -->
 								<!-- 									data-sitekey="6LcI-2siAAAAAHuP2lvgTvgCDMK1zqeoog8wmoO1"> -->
 								<!-- 								</div> -->
 
-								<!-- 谷歌驗證 -->
-<!-- 								<div class="g-recaptcha" id="rcaptcha" -->
-<!-- 									data-sitekey="6LcI-2siAAAAAHuP2lvgTvgCDMK1zqeoog8wmoO1"></div> -->
-<!-- 								<span id="captcha" style="color: red" /></span> -->
+								<!-- 								谷歌驗證 -->
+								<!-- 								<div class="g-recaptcha" id="rcaptcha" -->
+								<!-- 									data-sitekey="6LcI-2siAAAAAHuP2lvgTvgCDMK1zqeoog8wmoO1"></div> -->
+								<!-- 								<span id="captcha" style="color: red" /></span> -->
 								<!-- this will show captcha errors -->
 
 								<div class="mt-3">
 									<button
 										class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-										type="submit" value="login">登入</button>
-									<span>${errors.msg}</span>
+										type="submit" value="login">
+										<spring:message code="button.login" />
+									</button>
+									<span class="errormsg">${errors.msg}</span>
 								</div>
 
 								<div></div>
+								
+								
 								<div
 									class="my-2 d-flex justify-content-between align-items-center">
 									<div class="form-check">
-										<label class="form-check-label text-muted"> <input
+									&nbsp;&nbsp;&nbsp;&nbsp;
+										<label class="label text-muted"> <input
 											type="checkbox" class="form-check-input"
-											name="jacky-rememberme"> 記住我的認證
+											name="jacky-rememberme"> <spring:message
+												code="label.login.header" />
 										</label>
 									</div>
-									<a href="/toForgetPassword" class="auth-link .text-primary">忘記密碼</a>
+									<a href="/toForgetPassword" class="auth-link .text-primary"><spring:message
+											code="label.login.forgetpassword" /></a>
+								</div>
+								<div class="container">
+									<div class="mb-2">
+										<button type="button"
+											class="btn btn-social-icon btn-outline-facebook" >
+											<i class="fa-brands fa-facebook-f" ></i>
+										</button>
+
+										<!--          <button type="button" -->
+										<!--           class="btn btn-social-icon btn-outline-google"> -->
+										<!--           <i class="ti-google"></i> -->
+										<!--          </button> -->
+
+
+
+										<a href='/oauth2/authorization/google'>
+											<button type="button"
+												class="btn btn-social-icon btn-outline-google"
+												style="float: right;">
+												<i class="fa-brands fa-google"></i>
+											</button>
+										</a>
+
+
+
+									</div>
+
 								</div>
 								<div class="mb-2">
-									<button type="button"
-										class="btn btn-social-icon btn-outline-facebook">
-										<i class="ti-facebook"></i>
-									</button>
+
 
 									<!-- 									<button type="button" -->
 									<!-- 										class="btn btn-social-icon btn-outline-google"> -->
@@ -105,65 +141,93 @@
 									<!-- 									</button> -->
 
 
-									<a href='/oauth2/authorization/google'>
-										<button type="button"
-											class="btn btn-social-icon btn-outline-google">
-											<i class="ti-google"></i>
-										</button>
-									</a>
 
-
-
-								</div>
-
-
-								<hr>
-							</form>
-							<div>
-
-								<input id="tomember" type="button" class="btn btn-primary mr-2"
-									value="會員" style="float: left; background-color: #2AAC16">
-
-								<!-- 								<form action="toAdminLoginPage"> -->
-								<input id="toadmin" type="button" class="btn btn-primary mr-2"
-									value="管理員" style="float: right; background-color: #2AAC16">
-								<!-- 								</form> -->
-							</div>
-
-							<br> <br> <br>
-
-							<div id="fastinputtotal">
-
-								<!-- 								<form action="toMemberRegisterPage"> -->
-								<!-- 									<input type="submit" class="btn btn-primary mr-2" value="注冊" -->
-								<!-- 										style=""background-color:#2AAC16"> -->
-
-								<!-- 								</form> -->
-
-
-								<button type="button" class="btn btn-primary mr-2"
-									id="fastinput" style="float: right">老闆一鍵登入</button>
-
-								<button type="button" class="btn btn-primary mr-2"
-									id="fastinput2" style="float: left">管理員一鍵登入</button>
-
-								<div style="text-align: center">
 									<button type="button" class="btn btn-primary mr-2"
-										id="fastinput3" style="float: left">會員一鍵登入</button>
+										id="fastinput" style="float: right">
+										<spring:message code="button.fastlogin.Boss" />
+									</button>
+
+									<button type="button" class="btn btn-primary mr-2"
+										id="fastinput2" style="float: left">
+										<spring:message code="button.fastlogin.Admin" />
+									</button>
+
+
+									<div style="text-align: center">
+										<button type="button" class="btn btn-primary mr-2"
+											id="fastinput3" style="float: left">
+											<spring:message code="button.fastlogin.Member" />
+										</button>
+
+									</div>
 
 								</div>
 
-							</div>
+
+								<div>
+									<a href="toMemberRegisterPage"><button id="fastinput4"
+											type="button" class="btn btn-primary mr-2"
+											style="float: right">
+											<spring:message code="button.register" />
+										</button></a>
+								</div>
 
 
-							<div>
-								<a href="toMemberRegisterPage"><button id="fastinput4"
-										type="button" class="btn btn-primary mr-2"
-										style="float: right">注冊</button></a>
-							</div>
+								<!-- 								<div class="container"> -->
+								<!-- 									<div class="mb-2"> -->
+								<!-- 										<button type="button" -->
+								<!-- 											class="btn btn-social-icon btn-outline-facebook"> -->
+								<!-- 											<i class="fa-brands fa-facebook-f"></i> -->
+								<!-- 										</button> -->
+
+								<!-- 										         <button type="button" -->
+								<!-- 										          class="btn btn-social-icon btn-outline-google"> -->
+								<!-- 										          <i class="ti-google"></i> -->
+								<!-- 										         </button> -->
 
 
+
+								<!-- 										<a href='/oauth2/authorization/google'> -->
+								<!-- 											<button type="button"  -->
+								<!-- 												class="btn btn-social-icon btn-outline-google" -->
+								<!-- 												style="float: right;"> -->
+								<!-- 												<i class="fa-brands fa-google"></i> -->
+								<!-- 											</button> -->
+								<!-- 										</a> -->
+
+
+
+								<!-- 									</div> -->
+
+								<!-- 								</div> -->
 						</div>
+
+
+						<hr>
+						</form>
+						<div>
+
+							<input id="tomember" type="button" class="btn btn-primary mr-2"
+								value="<spring:message code="button.member"/>"
+								style="float: left; background-color: #2AAC16">
+
+							<!-- 								<form action="toAdminLoginPage"> -->
+							<input id="toadmin" type="button" class="btn btn-primary mr-2"
+								value="<spring:message code="button.admin"/>"
+								style="float: right; background-color: #2AAC16">
+							<!-- 								</form> -->
+						</div>
+
+						<br> <br> <br>
+						<hr>
+
+
+						<a href="/toAdminLoginPage?lang=zh" style="float: right"><button
+								class="btn btn-primary mr-2">中文</button></a> <a
+							href="/toAdminLoginPage?lang=" style="float: right"><button
+								class="btn btn-primary mr-2">English</button></a>
+
+
 					</div>
 				</div>
 			</div>
@@ -174,6 +238,8 @@
 	<!-- container-scroller -->
 	<!-- plugins:js -->
 	<script src="/js/coco/vendor.bundle.base.js"></script>
+	<script src="https://kit.fontawesome.com/6c4c414686.js"
+		crossorigin="anonymous"></script>
 
 	<!-- endinject -->
 	<!-- Plugin js for this page -->
@@ -203,7 +269,7 @@
 
 		$('#fastinput3').click(function() {
 
-			$('#username').val('jacky')
+			$('#username').val('jacky850926')
 			$('#password').val('123')
 
 		})
